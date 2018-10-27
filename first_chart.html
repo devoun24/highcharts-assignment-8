@@ -4,20 +4,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> My first chart with Highcharts </title>
-
   <link rel="stylesheet" href="styles/normalize.min.css">
   <link rel="stylesheet" href="styles/main.css">
 
-  <!-- add the Highcharts script elements here -->
+  <!-- add the Highcharts script elements here -->   <script src="https://code.highcharts.com/highcharts.js"></script>
+
+  <script src="https://code.highcharts.com/themes/sunset.js"></script>
 
 </head>
 <body>
 
   <h1>My first chart with Highcharts</h1>
 
+
+
   <!-- add the div and the chart code BELOW this comment -->
 
   <!-- the 'container' DIV must be EMPTY -->
+  <div id="container"></div>
+
+  <script>
+  Highcharts.chart('container', {
+          chart: {
+              type: 'bar'
+          },
+          title: {
+              text: 'Fruit Consumption'
+          },
+          xAxis: {
+              categories: ['Grapes', 'Apples', 'Bananas', 'Oranges',]
+          },
+          yAxis: {
+              title: {
+                  text: 'Fruit eaten'
+              }
+          },
+          series: [{
+              name: 'Claire',
+              data: [6, 1, 0, 4]
+          }, {
+              name: 'Brad',
+              data: [6, 5, 7, 3]
+          }]
+  });
+  </script>
 
 
   <!-- DO NOT write anything below these required tags /18 -->

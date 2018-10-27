@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Crime Rates</title>
+  <link href="https://fonts.googleapis.com/css?family=Anton|Josefin+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+
+  <!-- add the Highcharts script elements here -->   <script src="https://code.highcharts.com/highcharts.js"></script>
+
+  <script src="https://code.highcharts.com/themes/sunset.js"></script>
+
+</head>
+
+  <body>
+
+    <h1>Collegiate Crime in Alachua County</h1>
+
+
+
+    <!-- add the div and the chart code BELOW this comment -->
+
+    <!-- the 'container' DIV must be EMPTY -->
+    <div id="container"></div>
+
+    <p>By: Devoun Cetoute</p>
+
+    <p>Students at the University of Florida and Santa Fe College make up 25 percent of the population of Alachua County. While their actions affect business development and the local economy, it also affects the crime rate. With UF having the largest population of the two, the first chart will be looking at the most reported crimes on campus since 2015. The second chart shows all crimes reported on both campuses since 2016.</p>
+
+    <script>
+    Highcharts.chart('container', {
+      chart: {
+        type: 'bar'
+      },
+      title: {
+        text: 'University of Florida Crimes Reported'
+      },
+      subtitle: {
+        text: 'Source: <a href="data/ufpdreports.pdf">2018 UF Police Department Annual Security and Fire Saftey Report, Page 34</a>'
+      },
+      xAxis: {
+        categories: ['Rape', 'Aggravated Assualt', 'Burglary', 'Motor Vehicle Theft', 'Domestic Violence'],
+        title: {
+          text: null
+        }
+      },
+      yAxis: {
+        min: 0,
+        allowDecimals: false,
+        title: {
+          text: 'Amount Reported',
+          align: 'middle'
+        },
+        labels: {
+          overflow: 'justify'
+        }
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            enabled: true
+          }
+        }
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: false,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+      },
+      credits: {
+        enabled: false
+      },
+      series: [{
+        name: 'Year 2015',
+        data: [18, 14, 28, 22, 20]
+      }, {
+        name: 'Year 2016',
+        data: [22, 13, 28, 25, 10]
+      }, {
+        name: 'Year 2017',
+        data: [17, 14, 21, 23, 20]
+      }]
+    });
+    </script>
+
+    <div id="secondcontainer"></div>
+
+    <script>
+    Highcharts.chart('secondcontainer', {
+      title: {
+        text: 'Crimes Commited On Campuses'
+      },
+      subtitle: {
+        text: 'Source: <a href="data/santafe.pdf">Santa Fe College Police Department Clery Reports</a>'
+      },
+      xAxis: {
+        allowDecimals: false,
+      },
+      yAxis: {
+        title: {
+          text: 'Crimes Reported'
+        }
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+      },
+      plotOptions: {
+        series: {
+          label: {
+          connectorAllowed: false
+        },
+        pointStart: 2016,
+        pointEnd: 2018,
+      }
+    },
+    series: [{
+      name: 'Car Accidents',
+      data: [30, 26, 19]
+    }, {
+      name: 'Hit and Run',
+      data: [12, 16, 4]
+    }, {
+      name: 'Theft',
+      data: [53, 46, 13]
+    }, {
+      name: 'Criminal Mischief',
+      data: [5, 7, null]
+    }, {
+      name: 'Aggravated Assualt',
+      data: [17, 17, 6]
+    }, {
+      name: 'Rape',
+      data: [22, 17, null]
+    }, {
+      name: 'Disturbance',
+      data: [5, 5, 5]
+    }, {
+      name: 'Narcotics',
+      data: [9, 15, 6]
+    }, {
+      name: 'Grand Theft Auto',
+      data: [25, 23, null]
+    }],
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+    chartOptions: {
+      legend: {
+        layout: 'horizontal',
+        align: 'center',
+        verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+});
+</script>
+
+
+
+    <!-- DO NOT write anything below these required tags /18 -->
+  </body>
+  </html>
